@@ -28,8 +28,12 @@ export default function Signup() {
              .then((res)=> {
                     console.log(res.data)
                     alert("User create successfully")
+                    localStorage.setItem("ChatApp",JSON.stringify(res.data))
                 })
-             .catch((err)=>console.log(err))
+             .catch((err)=>{
+                    console.log(err)
+                    alert("Error" + " " + err.response.data.error)
+                })
     }
 
     return (
