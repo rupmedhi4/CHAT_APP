@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
+import axios from 'axios'
 
 export default function Signup() {
     const {
@@ -16,7 +17,20 @@ export default function Signup() {
         return value === password || "Passwords do not match"
     }
 
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => {
+        const userInfo ={
+            fullname :data.Fullname,
+            email : data.Email,
+            password : data.Password,
+            confirmPassword : data.ConfirmPassword,
+        }
+        axios.post("http://localhost:4048/user/signup", userInfo)
+             .then((res)=> {
+                    console.log(res.data)
+                    alert("User create successfully")
+                })
+             .catch((err)=>console.log(err))
+    }
 
     return (
         <>
