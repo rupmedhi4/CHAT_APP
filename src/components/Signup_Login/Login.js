@@ -21,7 +21,7 @@ export default function Login() {
             password : data.Password,
             
         }
-        axios.post("http://localhost:4048/user/login", userInfo)
+        axios.post("/api/user/login", userInfo)
              .then((res)=> {
                     console.log(res.data)
                     alert("User Login successfully")

@@ -29,7 +29,7 @@ export default function Signup() {
             password : data.Password,
             confirmPassword : data.ConfirmPassword,
         }
-      await axios.post("http://localhost:4048/user/signup", userInfo)
+      await axios.post("/api/user/signup", userInfo)
              .then((res)=> {
                     console.log(res.data)
                     alert("User create successfully")

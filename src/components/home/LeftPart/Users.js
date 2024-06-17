@@ -1,8 +1,11 @@
 import React from 'react'
 import User from './User'
 import Logout from './Logout'
+import useGetAllUsers from './../../context/useGetAllUsers';
 
 export default function Users() {
+  const [allUsers,loading] = useGetAllUsers()
+  console.log(allUsers);
     return (
         <div className='pt-6 container mx-auto'>
             <h1 className='px-8 py-2 text-white font-semibold bg-slate-800 rounded-md text-center md:text-left'>Messages</h1>
