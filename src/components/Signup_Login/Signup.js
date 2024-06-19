@@ -29,8 +29,8 @@ export default function Signup() {
             password : data.Password,
             confirmPassword : data.ConfirmPassword,
         }
-      await axios.post("/api/user/signup", userInfo)
-             .then((res)=> {
+        await axios.post("/api/user/signup", userInfo)
+        .then((res)=> {
                     console.log(res.data)
                     alert("User create successfully")
                     localStorage.setItem("ChatApp",JSON.stringify(res.data))

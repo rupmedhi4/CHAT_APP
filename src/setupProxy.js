@@ -1,11 +1,11 @@
-// import { createProxyMiddleware } from 'http-proxy-middleware';
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-// export default function(app) {
-//   app.use(
-//     '/api',
-//     createProxyMiddleware({
-//       target: 'http://localhost:4048',
-//       changeOrigin: true,
-//     })
-//   );
-// }
+module.exports = function(app) {
+  app.use(
+    '/api',  // This should match the endpoint prefix used in your frontend
+    createProxyMiddleware({
+      target: 'http://localhost:4048', // Your backend server URL
+      changeOrigin: true,
+    })
+  );
+};
