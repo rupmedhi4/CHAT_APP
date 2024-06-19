@@ -10,7 +10,6 @@ export default function Right() {
       <div className='flex-1 overflow-y-auto' style={{maxHeight:"calc(92vh - 10vh)"}}>
          <Messages/>
       </div>
-     
       <Typesend/>
     </div>
   )
