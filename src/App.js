@@ -14,7 +14,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={
-          authUser ? (
+          authUser  ? (
             <div className='flex h-screen'>
               <Left />
               <Right />
