@@ -12,8 +12,7 @@ export default function Users({user}) {
             <div className='py-2 flex-1 overflow-y-auto' style={{maxHeight: "calc(74vh - 10vh)"}}>
                 <div >
                     <User />
-                    <User />
-                    <User />
+                   
                 </div>
             </div>
         </div>

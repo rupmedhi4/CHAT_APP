@@ -4,6 +4,7 @@ import User from './User'
 import Logout from './Logout'
 import useGetAllUsers from '../../context/useGetAllUsers'
 import { RiH1 } from 'react-icons/ri'
+import Loading from '../../Loading'
 
 export default function Left() {
   const [allUsers, loading] = useGetAllUsers()
@@ -16,7 +17,7 @@ export default function Left() {
         {allUsers ?
           allUsers.map((user, index) => (
             <User key={index} user={user} />
-          )) : <h1>loading....</h1>
+          )) : <Loading/>
         }
       </div>
       <Logout />
