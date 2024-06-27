@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Message from './Message'
 import useGetMessage from '../../context/useGetMessage'
 import Loading from './../../Loading';
@@ -6,6 +6,17 @@ import Loading from './../../Loading';
 export default function Messages() {
   const { loading, messages } = useGetMessage()
   console.log(messages);
+
+  const lastMsgRef = useRef();
+  useEffect(() => {
+    setTimeout(() => {
+      if (lastMsgRef.current) {
+        lastMsgRef.current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  }, [messages]);
 
   return (
     <div className='flex-1 overflow-y-auto' style={{ minHeight: "calc(92vh - 10vh)" }}>
@@ -15,7 +26,7 @@ export default function Messages() {
       ) : (
         messages.length > 0 &&
         messages.map((message) => (
-            <Message key={message._id} message={message} />
+          <Message key={message._id} message={message} />
         ))
       )}
 

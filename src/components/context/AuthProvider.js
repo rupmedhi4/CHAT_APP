@@ -8,7 +8,6 @@ export function AuthProvider({children}) {
   const initialUserState = Cookies.get("jwt") || localStorage.getItem("ChatApp")
 
 
-  //perse the user data and storing in state
   const [authUser, setAuthUser] = useState(initialUserState ? JSON.parse(initialUserState):undefined)
   
   return (
