@@ -10,8 +10,16 @@ export default function Message({ message }) {
 
     const chatName = itsMe ? " chat-end" : "chat-start";
     const chatColor = itsMe ? "bg-blue-500" : "";
-
     console.log(message.message);
+
+    const createdAt = new Date(message.createdAt);
+    const formattedTime = createdAt.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+
+
     return (
         <div>
             <div className='p-4'>
@@ -19,6 +27,7 @@ export default function Message({ message }) {
                     <div className={`chat-bubble text-white ${chatColor}`}>
                         {message.message}
                     </div>
+                    <div className="chat-footer">{formattedTime}</div>
                 </div>
             </div>
 

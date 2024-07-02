@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import axios from 'axios'
 import { useAuth } from '../context/AuthProvider'
 import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 export default function Signup() {
 
@@ -32,13 +33,13 @@ export default function Signup() {
         await axios.post("/api/user/signup", userInfo)
         .then((res)=> {
                     console.log(res.data)
-                    alert("User create successfully")
+                    toast.success("User create successfully")
                     localStorage.setItem("ChatApp",JSON.stringify(res.data))
                     setAuthUser(res.data)
                 })
              .catch((err)=>{
                     console.log(err)
-                    alert("Error" + " " + err.response.data.error)
+                    toast.error("Error" + " " + err.response.data.error)
                 })
     }
 

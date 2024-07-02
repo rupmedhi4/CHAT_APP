@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { AiOutlineLogout } from "react-icons/ai";
 import Cookies from "js-cookie"
 import { useAuth } from '../../context/AuthProvider';
+import toast from 'react-hot-toast';
 
 export default function Logout() {
   const [loading, setLoading] = useState(false)
@@ -15,15 +16,15 @@ export default function Logout() {
       localStorage.removeItem("ChatApp")
       Cookies.remove("jwt")
       setLoading(false)
-      alert("logged out successfully")
+      toast.success("logged out successfully")
       setAuthUser(null)
     } catch (error) {
-      console.log(error);
+      toast.error("Something went wrong")
     }
   }
   return (
     <div className='h-[10vh]'>
-      <div className='px-6 py-4' onClick={handleLogout}>
+      <div className='px-6  bg-gray-800 ' onClick={handleLogout}>
         <button><AiOutlineLogout className='text-5xl p-2 hover:bg-slate-600 rounded-full duration-300' /></button>
       </div>
     </div>
